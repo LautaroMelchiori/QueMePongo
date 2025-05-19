@@ -1,0 +1,16 @@
+@startuml Diagrama
+
+class Prenda {
+    tipo
+    material
+    colorPrincipal
+    colorSecundario
+}
+
+class Atuendo {
+    prendas
+}
+
+Atuendo --> "*"  Prenda
+@enduml
+
