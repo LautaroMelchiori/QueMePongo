@@ -15,7 +15,7 @@ public class Prenda {
     this.trama = trama;
   }
 
-  public Categoria getCategoria() {
-    return this.tipo.obtenerCategoria();
+  public Categoria categoria() {
+    return this.tipo.getCategoria();
   }
 }

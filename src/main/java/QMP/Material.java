@@ -4,5 +4,7 @@ public enum Material {
   ALGODON,
   LINO,
   JEAN,
-  CUERO
+  CUERO,
+  PIQUE,
+  ACETATO
 }

@@ -5,12 +5,68 @@ class Prenda {
     material
     colorPrincipal
     colorSecundario
+    --
+    categoria()
 }
 
 class Atuendo {
     prendas
 }
 
+class Uniforme {
+    prendaSuperior
+    prendaInferior
+    calzado
+}
+
+enum TipoDePrenda {
+    ZAPATOS
+    ZAPATILLAS
+    REMERA
+    CAMISA_DE_MANGAS_CORTA
+    PANTALON
+    POLLERA
+    COLLAR
+    --
+    getCategoria()
+}
+
+enum Trama {
+  LISA
+  RAYADA
+  CON_LUNARES
+  A_CUADROS
+  ESTAMPADO
+}
+
+class Color {
+    red
+    green
+    blue
+}
+
+enum Material {
+  ALGODON
+  LINO
+  JEAN
+  CUERO
+}
+
+enum Categoria {
+  PARTE_SUPERIOR
+  PARTE_INFERIOR
+  CALZADO
+  ACCESORIO
+}
+
 Atuendo --> "*"  Prenda
+Uniforme --> "*" Prenda
+Prenda --> Material
+Prenda --> Color
+Prenda --> Color
+Prenda --> TipoDePrenda
+Prenda --> Trama
+TipoDePrenda --> Categoria
+
 @enduml
 
