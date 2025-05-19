@@ -5,10 +5,10 @@ public class PrendaBuilder {
   private Material material;
   private Color colorPrimario;
   private Color colorSecundario;
-  private Trama trama = Trama.LISA;
+  private Trama trama = Trama.LISA; // default trama: lisa
 
   public PrendaBuilder(TipoDePrenda tipo) {
-    this.tipo = tipo;
+    this.tipo = tipo; // esto me asegura que lo primero que se especifica es un tipo
   }
 
   public PrendaBuilder conMaterial(Material material) {
@@ -37,7 +37,7 @@ public class PrendaBuilder {
     }
   }
 
-  public Prenda armarPrneda() {
+  public Prenda armarPrenda() {
     this.validar();
     return new Prenda(tipo, material, colorPrimario, colorSecundario, trama);
   }
