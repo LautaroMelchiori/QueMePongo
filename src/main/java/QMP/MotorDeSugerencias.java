@@ -1,7 +1,11 @@
 package QMP;
 
+import static java.util.stream.Collectors.toList;
+
+import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
+
 
 public class MotorDeSugerencias {
   List<Prenda> prendasSuperiores;
@@ -20,6 +24,14 @@ public class MotorDeSugerencias {
       getRandom(prendasInferiores),
       getRandom(calzados)
     );
+  }
+
+  List<Atuendo> generarSugerencias() {
+    return Lists
+        .cartesianProduct(prendasSuperiores, prendasInferiores, calzados)
+        .stream()
+        .map((list) -> new Atuendo(list.getFirst(), list.get(1), list.get(2)))
+        .collect(toList());
   }
 
   public <T> T getRandom(List<T> list) {
