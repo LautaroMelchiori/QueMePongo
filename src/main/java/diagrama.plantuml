@@ -8,12 +8,7 @@ class Prenda {
     --
     categoria()
 }
-
 class Atuendo {
-    prendas
-}
-
-class Uniforme {
     prendaSuperior
     prendaInferior
     calzado

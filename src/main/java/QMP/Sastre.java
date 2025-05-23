@@ -1,8 +1,8 @@
 package QMP;
 
 public abstract class Sastre {
-  public Uniforme fabricarUniforme() {
-    return new Uniforme(this.fabricarPrendaSuperior(),
+  public Atuendo fabricarAtuendo() {
+    return new Atuendo(this.fabricarPrendaSuperior(),
         this.fabricarPrendaInferior(),
         this.fabricarCalzado());
   }

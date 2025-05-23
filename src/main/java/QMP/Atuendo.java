@@ -1,11 +1,11 @@
 package QMP;
 
-public class Uniforme {
+public class Atuendo {
   private Prenda prendaSuperior;
   private Prenda prendaInferior;
   private Prenda calzado;
 
-  public Uniforme(Prenda prendaSuperior, Prenda prendaInferior, Prenda calzado) {
+  public Atuendo(Prenda prendaSuperior, Prenda prendaInferior, Prenda calzado) {
     this.validarPrendas(prendaSuperior, prendaInferior, calzado);
     this.prendaSuperior = prendaSuperior;
     this.prendaInferior = prendaInferior;
@@ -18,9 +18,9 @@ public class Uniforme {
     this.validarPrenda(calzado, Categoria.CALZADO, "El calzado ");
   }
 
-  public void validarPrenda(Prenda unaPrenda, Categoria categoriaEsperada, String parteUniforme) {
+  public void validarPrenda(Prenda unaPrenda, Categoria categoriaEsperada, String parteAtuendo) {
     if (unaPrenda.categoria() != categoriaEsperada) {
-      throw new RuntimeException(String.format("%s del uniforme es invalida", parteUniforme));
+      throw new RuntimeException(String.format("%s del uniforme es invalida", parteAtuendo));
     }
   }
 }
