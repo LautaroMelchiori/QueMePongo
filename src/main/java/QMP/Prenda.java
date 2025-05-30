@@ -28,4 +28,8 @@ public class Prenda {
   boolean esFormal() {
     return this.formalidad.equals(Formalidad.FORMAL);
   }
+
+  boolean esAdecuadaPara(float unaTemperatura) {
+    return this.tipo.esAdecuadaPara(unaTemperatura);
+  }
 }
