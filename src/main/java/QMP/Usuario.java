@@ -6,10 +6,12 @@ public class Usuario {
   List<Prenda> prendas;
   Integer edad;
   MotorDeSugerencias motor;
+  ServicioMeteorologico servicioMeteorologico;
 
-  Usuario(Integer edad, MotorDeSugerencias motor) {
+  Usuario(Integer edad, MotorDeSugerencias motor,ServicioMeteorologico servicioMeteorologico) {
     this.edad = edad;
     this.motor = motor;
+    this.servicioMeteorologico = servicioMeteorologico;
   }
 
   List<Atuendo> generarSugerencias() {
@@ -21,7 +23,9 @@ public class Usuario {
   }
 
   List<Prenda> getPrendas() {
-    return this.prendas;
+    return this.prendas.stream()
+        .filter(p -> p.esAdecuadaPara(servicioMeteorologico.getEstadoClima("Buenos Aires").temperatura))
+        .toList();
   }
 
   Integer getEdad() {
