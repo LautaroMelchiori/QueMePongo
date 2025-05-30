@@ -24,4 +24,8 @@ public class Prenda {
   TipoDePrenda getTipo() {
     return this.tipo;
   }
+
+  boolean esFormal() {
+    return this.formalidad.equals(Formalidad.FORMAL);
+  }
 }

@@ -6,6 +6,7 @@ public class PrendaBuilder {
   private Color colorPrimario;
   private Color colorSecundario;
   private Trama trama = Trama.LISA; // default trama: lisa
+  private Formalidad formalidad = Formalidad.INFORMAL; // default formalidad: informal
 
   public PrendaBuilder(TipoDePrenda tipo) {
     this.tipo = tipo; // esto me asegura que lo primero que se especifica es un tipo
@@ -31,6 +32,11 @@ public class PrendaBuilder {
     return this;
   }
 
+  public PrendaBuilder conFormalidad(Formalidad formalidad) {
+    this.formalidad = formalidad;
+    return this;
+  }
+
   public void validar() {
     if (this.tipo == null || this.material == null || this.colorPrimario == null) {
       throw new PrendaInvalida("Faltan datos para la prenda");
@@ -39,6 +45,6 @@ public class PrendaBuilder {
 
   public Prenda armarPrenda() {
     this.validar();
-    return new Prenda(tipo, material, colorPrimario, colorSecundario, trama);
+    return new Prenda(tipo, material, colorPrimario, colorSecundario, trama, formalidad);
   }
 }
