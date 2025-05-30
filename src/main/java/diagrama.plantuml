@@ -14,6 +14,28 @@ class Atuendo {
     calzado
 }
 
+class Usuario {
+    Prendas
+    MotorDeSugerencias
+    --
+    generarSugerencias()
+}
+
+abstract class MotorDeSugerencias {
+    --
+    {abstract} esPrendaValidaPara(unUsuario, prenda)
+    generarUnaSugerenciaPara(unUsuario)
+    generarSugerenciasPara(unUsuario)
+}
+
+class MotorDeSugerenciasBasico {
+  esPrendaValidaPara(unUsuario, prenda)
+}
+
+class MotorDeSugerenciasGerontofobico {
+  esPrendaValidaPara(unUsuario, prenda)
+}
+
 enum TipoDePrenda {
     ZAPATOS
     ZAPATILLAS
@@ -55,13 +77,17 @@ enum Categoria {
 }
 
 Atuendo --> "*"  Prenda
-Uniforme --> "*" Prenda
+Usuario --> "*" Prenda
+Usuario ..> Atuendo
 Prenda --> Material
 Prenda --> Color
 Prenda --> Color
 Prenda --> TipoDePrenda
 Prenda --> Trama
 TipoDePrenda --> Categoria
+Usuario -l-> MotorDeSugerencias
+MotorDeSugerenciasBasico -|> MotorDeSugerencias
+MotorDeSugerenciasGerontofobico -d|> MotorDeSugerencias
 
 @enduml
 
