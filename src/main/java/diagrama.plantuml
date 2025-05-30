@@ -87,7 +87,7 @@ Prenda --> Trama
 TipoDePrenda --> Categoria
 Usuario -l-> MotorDeSugerencias
 MotorDeSugerenciasBasico -|> MotorDeSugerencias
-MotorDeSugerenciasGerontofobico -d|> MotorDeSugerencias
+MotorDeSugerenciasGerontofobico -|> MotorDeSugerencias
 
 @enduml
 
