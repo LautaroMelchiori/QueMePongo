@@ -5,8 +5,6 @@ import java.util.List;
 
 public class Usuario {
   List<Guardarropa> guardarropas;
-
-
   Integer edad;
   MotorDeSugerencias motor;
   ServicioMeteorologico servicioMeteorologico;
