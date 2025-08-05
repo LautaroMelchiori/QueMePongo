@@ -24,4 +24,13 @@ public class ServicioMeteorologicoAccuWeather implements ServicioMeteorologico {
 
     return estadoClima;
   }
+
+  public List<AlertaMeteorologica> getAlertas(String ciudad) {
+    Map<String, List<String>> alertas = api.getAlerts("Buenos Aires");
+    return alertas.get("CurrentAlerts").stream().map(alerta -> switch (alerta) {
+      case "STORM" -> AlertaMeteorologica.TORMENTA;
+      case "HAIL" -> AlertaMeteorologica.GRANIZO;
+      default -> AlertaMeteorologica.NULL_ALERTA;
+    }).toList();
+  }
 }
