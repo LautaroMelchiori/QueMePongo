@@ -4,7 +4,9 @@ import java.util.Collection;
 import java.util.List;
 
 public class Usuario {
-  List<List<Prenda>> guardarropas;
+  List<Guardarropa> guardarropas;
+
+
   Integer edad;
   MotorDeSugerencias motor;
   ServicioMeteorologico servicioMeteorologico;
@@ -21,10 +23,10 @@ public class Usuario {
 
   List<Prenda> getPrendas() {
     return this.guardarropas.stream()
-        .flatMap(Collection::stream)
+        .flatMap(guardarropa -> guardarropa.getPrendas().stream())
         .filter(p -> p.esAdecuadaPara(servicioMeteorologico.getEstadoClima("Buenos Aires").temperatura))
         .toList();
-  } 
+  }
 
   Integer getEdad() {
     return this.edad;
