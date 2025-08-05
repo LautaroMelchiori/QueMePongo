@@ -8,11 +8,16 @@ public class Usuario {
   Integer edad;
   MotorDeSugerencias motor;
   ServicioMeteorologico servicioMeteorologico;
+  Atuendo sugerenciaDiaria;
 
   Usuario(Integer edad, MotorDeSugerencias motor,ServicioMeteorologico servicioMeteorologico) {
     this.edad = edad;
     this.motor = motor;
     this.servicioMeteorologico = servicioMeteorologico;
+  }
+
+  void actualizarSugerenciaDiaria() {
+    this.sugerenciaDiaria = this.generarSugerencias().getFirst();
   }
 
   List<Atuendo> generarSugerencias() {
