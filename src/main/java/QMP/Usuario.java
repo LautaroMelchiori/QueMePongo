@@ -6,12 +6,14 @@ import java.util.List;
 public class Usuario {
   List<Guardarropa> guardarropas;
   Integer edad;
+  String mail;
   MotorDeSugerencias motor;
   ServicioMeteorologico servicioMeteorologico;
   Atuendo sugerenciaDiaria;
 
-  Usuario(Integer edad, MotorDeSugerencias motor,ServicioMeteorologico servicioMeteorologico) {
+  Usuario(Integer edad, String mail, MotorDeSugerencias motor,ServicioMeteorologico servicioMeteorologico) {
     this.edad = edad;
+    this.mail = mail;
     this.motor = motor;
     this.servicioMeteorologico = servicioMeteorologico;
   }

@@ -5,6 +5,7 @@ import java.util.List;
 public class AlertasRepository {
   ServicioMeteorologico servicioMeteorologico;
   List<AlertaMeteorologica> alertas;
+  List<InteresadoEnAlerta> interesados;
 
   static AlertasRepository instance = new AlertasRepository(new ServicioMeteorologicoAccuWeather(new AccuWeatherAPI()));
 
@@ -14,6 +15,9 @@ public class AlertasRepository {
 
   public void actualizarAlertas(String ciudad) {
     this.alertas = this.servicioMeteorologico.getAlertas(ciudad);
+    this.alertas.forEach(alerta -> {
+      interesados.forEach(i -> i.publicarAlerta(alerta));
+    });
   }
 
   private AlertasRepository(ServicioMeteorologico servicioMeteorologico) {
