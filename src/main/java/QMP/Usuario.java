@@ -1,9 +1,10 @@
 package QMP;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Usuario {
-  List<Prenda> prendas;
+  List<List<Prenda>> guardarropas;
   Integer edad;
   MotorDeSugerencias motor;
   ServicioMeteorologico servicioMeteorologico;
@@ -18,15 +19,12 @@ public class Usuario {
     return this.motor.generarSugerenciasPara(this);
   }
 
-  void addPrenda(Prenda prenda) {
-    this.prendas.add(prenda);
-  }
-
   List<Prenda> getPrendas() {
-    return this.prendas.stream()
+    return this.guardarropas.stream()
+        .flatMap(Collection::stream)
         .filter(p -> p.esAdecuadaPara(servicioMeteorologico.getEstadoClima("Buenos Aires").temperatura))
         .toList();
-  }
+  } 
 
   Integer getEdad() {
     return this.edad;
