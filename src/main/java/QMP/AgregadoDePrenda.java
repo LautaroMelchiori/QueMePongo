@@ -1,6 +1,6 @@
 package QMP;
 
-public class AgregadoDePrenda implements PropuestaModificacion {
+public class AgregadoDePrenda extends PropuestaModificacion {
   Prenda prenda;
   Guardarropa guardarropa;
   EstadoPropuesta estado = EstadoPropuesta.PENDIENTE;
@@ -10,18 +10,14 @@ public class AgregadoDePrenda implements PropuestaModificacion {
     this.guardarropa = guardarropa;
   }
 
-  public void aceptar() {
+  @Override
+  public void realizarAceptacion() {
     this.guardarropa.agregarPrenda(this.prenda);
-    this.estado = EstadoPropuesta.ACEPTADA;
   }
 
-  public void deshacer() {
+  @Override
+  public void realizarDeshecho() {
     // podria validar que este aceptada antes de deshacer pero confio en el adentro
     this.guardarropa.eliminarPrenda(this.prenda);
-    this.estado = EstadoPropuesta.PENDIENTE;
-  }
-
-  public void rechazar() {
-    this.estado = EstadoPropuesta.RECHAZADA;
   }
 }

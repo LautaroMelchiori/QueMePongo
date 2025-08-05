@@ -10,7 +10,6 @@ public class Guardarropa {
     return propuestas;
   }
 
-
   void agregarPropuesta(PropuestaModificacion propuesta) {
     this.propuestas.add(propuesta);
   }
