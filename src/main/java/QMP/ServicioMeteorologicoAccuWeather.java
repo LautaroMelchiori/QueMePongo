@@ -30,7 +30,7 @@ public class ServicioMeteorologicoAccuWeather implements ServicioMeteorologico {
     return alertas.get("CurrentAlerts").stream().map(alerta -> switch (alerta) {
       case "STORM" -> AlertaMeteorologica.TORMENTA;
       case "HAIL" -> AlertaMeteorologica.GRANIZO;
-      default -> AlertaMeteorologica.NULL_ALERTA;
+      default -> AlertaMeteorologica.ALERTA_DESCONOCIDA;
     }).toList();
   }
 }

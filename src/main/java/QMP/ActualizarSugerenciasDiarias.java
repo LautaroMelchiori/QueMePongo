@@ -2,7 +2,7 @@ package QMP;
 
 import java.util.List;
 
-public class actualizarSugerenciasDiarias {
+public class ActualizarSugerenciasDiarias {
   static List<Usuario> usuarios;
 
   public static void main(String[] args) {
